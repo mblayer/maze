@@ -18,7 +18,7 @@ export function visualizeSolution(data) {
     .classList.contains('startNode');
 
   let cellPointB = document
-    .getElementById('cell-0-1')
+    .getElementById('cell-10-11')
     .classList.contains('startNode');
 
   if (cellPointA) {
