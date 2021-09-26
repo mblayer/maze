@@ -12,11 +12,23 @@ const animatePath = (nodesInOrder) => {
 };
 
 export function visualizeSolution(data) {
-  let finishCell = document
+  let finishCell = {};
+  let cellPointA = document
     .getElementById('cell-0-1')
-    .classList.contains('startNode')
-    ? { column: 10, row: 11 }
-    : { column: 0, row: 1 };
+    .classList.contains('startNode');
+
+  let cellPointB = document
+    .getElementById('cell-0-1')
+    .classList.contains('startNode');
+
+  if (cellPointA) {
+    finishCell = { column: 10, row: 11 };
+  } else if (cellPointB) {
+    finishCell = { column: 0, row: 1 };
+  } else {
+    resolveMaze(data, data[0][1], data[10][11]);
+    finishCell = { column: 10, row: 11 };
+  }
 
   const nodesInOrder = getShortestPath(data[finishCell.column][finishCell.row]);
   animatePath(nodesInOrder);

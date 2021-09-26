@@ -45,7 +45,11 @@ export default class NavBar extends Component {
             Restart
           </button>
         </section>
-        <section>Matias Blayer</section>
+        <section>
+          <a href="https://github.com/mblayer/maze" target="_blank" rel="noreferrer">
+            Github
+          </a>
+        </section>
       </nav>
     );
   }

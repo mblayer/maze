@@ -31,12 +31,19 @@
 }
 
 .buttonStart:hover {
-  border: 2px solid var(--default-primary-color) ;
+  color: var(--text-secondary-color);
 }
 
 .guide li {
   list-style-type: none;
   font-size: 1.2rem;
   color: var(--text-primary-color);
-  padding: 1%;
+  padding: 4%;
+}
+
+.startMaze h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-secondary-color);
+  text-align: center;
 }

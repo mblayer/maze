@@ -20,7 +20,7 @@ nav h1 {
   text-align: center;
 }
 
-nav button {
+nav button, nav a {
   font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 0.5rem;
@@ -31,7 +31,7 @@ nav button {
   text-align: left;
   cursor: pointer;
 }
-nav button:hover {
+nav button:hover, nav a:hover {
   background-color: var( --light-primary-color);
   width: 100%;
 }
