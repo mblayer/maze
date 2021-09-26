@@ -1,0 +1,42 @@
+.startMaze{
+  background-color: var(--light-primary-color);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.startMaze p {
+  background-color: transparent;
+  color: var(--text-primary-color);
+}
+
+.containerNavMaze {
+  display: flex;
+  width: 100%;
+}
+
+.buttonStart {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+  color: var(--text-primary-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.buttonStart:hover {
+  border: 2px solid var(--default-primary-color) ;
+}
+
+.guide li {
+  list-style-type: none;
+  font-size: 1.2rem;
+  color: var(--text-primary-color);
+  padding: 1%;
+}
