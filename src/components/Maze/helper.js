@@ -41,16 +41,30 @@ export function handleClick(e, data) {
     `cell-${data[currentNodeColumn][currentNodeRow].column}-${data[currentNodeColumn][currentNodeRow].row}`
   );
 
+  const previusNode = document.getElementById(
+    `cell-${data[currentNodeColumn][currentNodeRow].previousNode?.column}-${data[currentNodeColumn][currentNodeRow].previousNode?.row}`
+  );
+
   if (currenNode.id === 'cell-0-1') {
     resolveMaze(data, data[0][1], data[10][11]);
-    let cellObject = document.getElementById(e.target.id);
-    cellObject.className = `${cellObject.className} active startNode`;
-    return;
+    let finishCell = document.getElementById('cell-10-11');
+
+    if (!finishCell.classList.contains('startNode')) {
+      let cellObject = document.getElementById(e.target.id);
+      cellObject.className = `${cellObject.className} active startNode`;
+      finishCell.className = `${finishCell.className} finishNode`;
+      return { isCellGame: false, type: 'startNode' };
+    }
   } else if (currenNode.id === 'cell-10-11') {
     resolveMaze(data, data[10][11], data[0][1]);
-    let cellObject = document.getElementById(e.target.id);
-    cellObject.className = `${cellObject.className} active startNode`;
-    return;
+
+    let finishCell = document.getElementById('cell-0-1');
+    if (!finishCell.classList.contains('startNode')) {
+      let cellObject = document.getElementById(e.target.id);
+      cellObject.className = `${cellObject.className} active startNode`;
+      finishCell.className = `${finishCell.className} finishNode`;
+      return { isCellGame: false, type: 'startNode' };
+    }
   }
 
   const isCellGame = e.target.classList.contains('game');
@@ -61,18 +75,20 @@ export function handleClick(e, data) {
       const classesOutPlayerClass = cellObject.className.replace('temblor', '');
       cellObject.className = `${classesOutPlayerClass}`;
     }, 200);
-    return false;
+    return { isCellGame: false, type: 'wall' };
   }
-
-  const previusNode = document.getElementById(
-    `cell-${data[currentNodeColumn][currentNodeRow].previousNode?.column}-${data[currentNodeColumn][currentNodeRow].previousNode?.row}`
-  );
 
   const isActivePreviusNode = previusNode?.classList.contains('active');
+  const IsCurrentNodeFinish = currenNode?.classList.contains('finishNode');
+  const IsCurrentNodeActive = currenNode?.classList.contains('active');
 
-  if (isActivePreviusNode) {
+  if (isActivePreviusNode && !IsCurrentNodeActive) {
+    if (IsCurrentNodeFinish) {
+      return { isCellGame: false, type: 'finishNode' };
+    }
     let cellObject = document.getElementById(e.target.id);
     cellObject.className = `${cellObject.className} active`;
-    return true;
+    return { isCellGame: true, type: 'cellNode' };
   }
+  return { isCellGame: false, type: 'null' };
 }

@@ -19,6 +19,7 @@
 
 .game {
   background-color: var(--default-primary-color);
+  cursor: pointer;
 }
 
 .active {
@@ -44,4 +45,29 @@
 .container {
   display: flex;
   width: 100%;
+}
+
+.finishNode {
+  background-color: #C5CAE9;
+}
+
+.finishMaze {
+  background-color: var(--light-primary-color);
+  position: absolute;
+  opacity: 85%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-left: 10%;
+}
+.finishMaze p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--text-primary-color);
+  text-align: center;
+}
+.hidden {
+  display: none;
 }

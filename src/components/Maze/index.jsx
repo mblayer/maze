@@ -14,7 +14,7 @@ export default class Maze extends Component {
       resolveMaze: false,
       clearMaze: false,
       count: 0,
-      finishNode: '',
+      finishMaze: false,
     };
     this.handleSolucion = this.handleSolucion.bind(this);
     this.handleClearMaze = this.handleClearMaze.bind(this);
@@ -32,9 +32,11 @@ export default class Maze extends Component {
   }
 
   handleClickCell(e) {
-    const isGameCell = handleClick(e, data);
+    const { isCellGame, type } = handleClick(e, data);
+
+    if (type === 'finishNode') this.setState({ finishMaze: !this.state.finishMaze });
     // eslint-disable-next-line react/no-direct-mutation-state
-    if (isGameCell) this.setState({ count: ++this.state.count });
+    if (isCellGame) this.setState({ count: ++this.state.count });
   }
 
   render() {
@@ -54,6 +56,12 @@ export default class Maze extends Component {
               handleClearMaze={this.handleClearMaze}
               countMoves={this.state.count}
             />
+            <div className={this.state.finishMaze ? 'finishMaze' : 'hidden'}>
+              <p>
+                Congratulations, you finished the Incredible Maze in{' '}
+                {this.state.count} moves
+              </p>
+            </div>
             <section className="containerCells">
               {data.map((rowY, indexY) => (
                 <Fragment key={`x-${indexY}`}>
