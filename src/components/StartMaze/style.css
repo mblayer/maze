@@ -19,7 +19,7 @@
 }
 
 .buttonStart {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: bold;
   letter-spacing: 0.5rem;
   color: var(--text-primary-color);
@@ -36,13 +36,13 @@
 
 .guide li {
   list-style-type: none;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color: var(--text-primary-color);
   padding: 4%;
 }
 
 .startMaze h1 {
-  font-size: 4rem;
+  font-size: 3em;
   font-weight: bold;
   color: var(--text-secondary-color);
   text-align: center;

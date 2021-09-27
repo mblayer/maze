@@ -5,6 +5,7 @@ import './style.css';
 import { visualizeSolution, handleClick } from './helper';
 import NavBar from '../Navbar';
 import StartMaze from '../StartMaze';
+import Hamburger from 'hamburger-react';
 
 export default class Maze extends Component {
   constructor(props) {
@@ -15,10 +16,12 @@ export default class Maze extends Component {
       clearMaze: false,
       count: 0,
       finishMaze: false,
+      isMenuOpen: false,
     };
     this.handleSolucion = this.handleSolucion.bind(this);
     this.handleClearMaze = this.handleClearMaze.bind(this);
     this.handleStatusMaze = this.handleStatusMaze.bind(this);
+    this.handleisMenuOpen = this.handleisMenuOpen.bind(this);
   }
 
   handleSolucion() {
@@ -29,6 +32,9 @@ export default class Maze extends Component {
   }
   handleStatusMaze() {
     this.setState({ statusMaze: !this.state.statusMaze });
+  }
+  handleisMenuOpen() {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   }
 
   handleClickCell(e) {
@@ -49,12 +55,19 @@ export default class Maze extends Component {
           />
         ) : (
           <div className="containerNavMaze">
+            <div className="burger">
+              <Hamburger
+                toggled={this.state.isMenuOpen}
+                toggle={this.handleisMenuOpen}
+              />
+            </div>
             <NavBar
               resolveMaze={this.state.resolveMaze}
               handleSolucion={this.handleSolucion}
               clearMaze={this.state.resolveMaze}
               handleClearMaze={this.handleClearMaze}
               countMoves={this.state.count}
+              isMenuOpen={this.state.isMenuOpen}
             />
             <div className={this.state.finishMaze ? 'finishMaze' : 'hidden'}>
               <p>

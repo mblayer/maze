@@ -59,8 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
-  margin-left: 10%;
+  width: 100%;
 }
 .finishMaze p {
   font-size: 3rem;
@@ -70,4 +69,11 @@
 }
 .hidden {
   display: none;
+}
+
+.burger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
 }

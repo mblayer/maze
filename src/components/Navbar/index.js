@@ -21,8 +21,8 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <nav>
-        <section>
+      <nav className={this.props.isMenuOpen ? 'visible' : 'hidden'}>
+        <section className="menu">
           <h1>Maze</h1>
 
           <p className="counter">{this.props.countMoves}</p>
@@ -57,4 +57,5 @@ export default class NavBar extends Component {
 
 NavBar.propTypes = {
   countMoves: PropTypes.number,
+  isMenuOpen: PropTypes.bool,
 };

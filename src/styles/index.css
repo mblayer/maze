@@ -8,4 +8,11 @@ body {
   background-color: var(--default-primary-color);
   color: var(--text-primary-color);
   font-size: 16px;
+  overflow: hidden;
 }
+
+@media (max-width: 720px) { 
+  body{
+    font-size: 10px;
+  }
+ }
