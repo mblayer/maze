@@ -53,6 +53,7 @@ nav button:hover, nav a:hover {
 
 .visible {
   visibility: visible;
+  position: absolute;
 }
 
 .hidden {
