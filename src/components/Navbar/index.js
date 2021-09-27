@@ -21,7 +21,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <nav className={this.props.isMenuOpen ? 'visible' : 'hidden'}>
+      <nav className={this.props.isMenuOpen ? 'NavVisible' : 'NavHidden'}>
         <section className="menu">
           <h1>Maze</h1>
 

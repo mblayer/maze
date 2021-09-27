@@ -71,8 +71,15 @@
 }
 
 .burger {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 99;
+  display: none;
+}
+
+@media (max-width: 720px) { 
+  .burger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+  }
 }

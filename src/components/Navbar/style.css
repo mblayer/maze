@@ -51,15 +51,6 @@ nav button:hover, nav a:hover {
   margin-bottom: 50px;
 }
 
-.visible {
-  visibility: visible;
-  position: absolute;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
 @media (max-width: 720px) { 
   nav h1 {
     font-size: 2em;
@@ -67,5 +58,13 @@ nav button:hover, nav a:hover {
   .counter, .moves {
     font-size: 2em;
     font-weight: bold;
+  }
+  .navVisible {
+    display: block;
+    position: absolute;
+  }
+  
+  .NavHidden {
+    display: none;
   }
 }
